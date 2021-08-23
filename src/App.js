@@ -1,6 +1,7 @@
 import "./App.css";
-import { quotes } from "./quotes";
 import { useState } from "react";
+import { quotes } from "./quotes";
+import { bgColors } from "./colors";
 
 const App = () => {
   return (
@@ -36,23 +37,6 @@ const Cards = () => {
       author = "Unknown author";
     }
   })();
-
-  const bgColors = [
-    "rgb(161, 71, 71)",
-    "rgb(161, 107, 71)",
-    "rgb(161, 152, 71)",
-    "rgb(137, 161, 71)",
-    "rgb(111, 161, 71)",
-    "rgb(71, 161, 119)",
-    "rgb(71, 132, 161)",
-    "rgb(71, 77, 161)",
-    "rgb(125, 71, 161)",
-    "rgb(161, 71, 149)",
-    "rgb(161, 71, 108)",
-    "rgb(95, 71, 161)",
-    "rgb(161, 95, 156)",
-    "rgb(65, 109, 61)",
-  ];
 
   const changeBgColor = () => {
     let colorIndex = Math.floor(Math.random() * bgColors.length);
