@@ -23,7 +23,7 @@ const Cards = () => {
   // sets index variable to use in Cards component
   let [index, setIndex] = useState(randomIndex());
   const newQuote = () => {
-    setIndex((index = randomIndex()));
+    setIndex(randomIndex());
   };
 
   let text;
