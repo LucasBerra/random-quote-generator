@@ -49,7 +49,11 @@ const Cards = () => {
     "rgb(125, 71, 161)",
     "rgb(161, 71, 149)",
     "rgb(161, 71, 108)",
+    "rgb(95, 71, 161)",
+    "rgb(161, 95, 156)",
+    "rgb(65, 109, 61)",
   ];
+
   const changeBgColor = () => {
     let colorIndex = Math.floor(Math.random() * bgColors.length);
     let currentBgColor = bgColors[colorIndex];
