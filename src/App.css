@@ -21,7 +21,7 @@ body {
   text-align: center;
   min-height: 100vh;
   color: white;
-  background-color: #6c50ac;
+  background-color: #5e3ba0;
 }
 
 h1 {
@@ -41,7 +41,7 @@ h1 {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   width: 600px;
   height: 200px;
   border-radius: 25px 0;
