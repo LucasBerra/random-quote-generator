@@ -28,35 +28,33 @@ const Cards = () => {
   let text;
   let author;
 
-  const generateQuote = () => {
+  (function generateQuote() {
     text = quotes[index]["text"];
     author = quotes[index]["author"];
 
     if (author === null) {
       author = "Unknown author";
     }
-  };
-
-  generateQuote();
+  })();
 
   const bgColors = [
-    "rgb(172, 80, 80)",
-    "rgb(197, 113, 64)",
-    "rgb(177, 159, 59)",
-    "rgb(120, 168, 74)",
-    "rgb(74, 168, 82)",
-    "rgb(53, 163, 121)",
-    "rgb(59, 160, 155)",
-    "rgb(59, 94, 160)",
-    "rgb(73, 74, 165)",
-    "rgb(111, 82, 167)",
-    "rgb(143, 59, 160)",
-    "rgb(160, 59, 106)",
+    "rgb(161, 71, 71)",
+    "rgb(161, 107, 71)",
+    "rgb(161, 152, 71)",
+    "rgb(137, 161, 71)",
+    "rgb(111, 161, 71)",
+    "rgb(71, 161, 119)",
+    "rgb(71, 132, 161)",
+    "rgb(71, 77, 161)",
+    "rgb(125, 71, 161)",
+    "rgb(161, 71, 149)",
+    "rgb(161, 71, 108)",
   ];
   const changeBgColor = () => {
     let colorIndex = Math.floor(Math.random() * bgColors.length);
     let currentBgColor = bgColors[colorIndex];
 
+    document.querySelector("body").style.transition = "background-color 400ms";
     document.querySelector("body").style.backgroundColor = currentBgColor;
   };
 

@@ -12,7 +12,7 @@ body {
   text-align: center;
   min-height: 100vh;
   color: white;
-  background-color: rgb(111, 82, 167);
+  background-color: rgb(137, 161, 71);
 }
 
 h1 {
@@ -35,9 +35,10 @@ h1 {
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
   span {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0 0.75rem;
   }
   p {
