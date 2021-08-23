@@ -14,12 +14,13 @@ const App = () => {
 };
 
 const Cards = () => {
+  // function to pick a random index from the quotes array
   const randomIndex = () => {
     return Math.floor(Math.random() * quotes.length);
   };
 
+  // sets index variable to use in Cards component
   let [index, setIndex] = useState(randomIndex());
-
   const newQuote = () => {
     setIndex((index = randomIndex()));
   };
