@@ -38,14 +38,6 @@ const Cards = () => {
     }
   })();
 
-  const changeBgColor = () => {
-    let colorIndex = Math.floor(Math.random() * bgColors.length);
-    let currentBgColor = bgColors[colorIndex];
-
-    document.querySelector("body").style.transition = "background-color 400ms";
-    document.querySelector("body").style.backgroundColor = currentBgColor;
-  };
-
   return (
     <>
       <div id="quote-container">
@@ -68,6 +60,14 @@ const Cards = () => {
       </button>
     </>
   );
+};
+
+const changeBgColor = () => {
+  let colorIndex = Math.floor(Math.random() * bgColors.length);
+  let currentBgColor = bgColors[colorIndex];
+
+  document.querySelector("body").style.transition = "background-color 450ms";
+  document.querySelector("body").style.backgroundColor = currentBgColor;
 };
 
 export default App;
