@@ -1,7 +1,10 @@
 import "./App.css";
 import { useState } from "react";
-import { quotes } from "./quotes";
 import { bgColors } from "./colors";
+import { useEffect } from "react/cjs/react.development";
+
+// quotes API
+const url = "https://type.fit/api/quotes";
 
 const App = () => {
   return (
@@ -20,11 +23,27 @@ const Cards = () => {
     return Math.floor(Math.random() * quotes.length);
   };
 
-  // sets index variable to use in Cards component
+  // initializes quotes variable
+  const [quotes, setQuotes] = useState([
+    {
+      text: " ",
+      author: " ",
+    },
+  ]);
+
+  // initializes quotes' index variable
   const [index, setIndex] = useState(randomIndex());
   const newQuote = () => {
     setIndex(randomIndex());
   };
+
+  // fetch quotes API
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setQuotes(data))
+      .catch((error) => console.log(`An error occured: ${error}`));
+  }, []);
 
   return (
     <>
