@@ -1,7 +1,6 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { bgColors } from "./colors";
-import { useEffect } from "react/cjs/react.development";
 
 // quotes API
 const url = "https://type.fit/api/quotes";
@@ -42,7 +41,7 @@ const Cards = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setQuotes(data))
-      .catch((error) => console.log(`An error occured: ${error}`));
+      .catch((error) => console.log("An error occured: ", error));
   }, []);
 
   return (
