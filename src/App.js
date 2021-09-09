@@ -21,22 +21,10 @@ const Cards = () => {
   };
 
   // sets index variable to use in Cards component
-  let [index, setIndex] = useState(randomIndex());
+  const [index, setIndex] = useState(randomIndex());
   const newQuote = () => {
     setIndex(randomIndex());
   };
-
-  let text;
-  let author;
-
-  (function generateQuote() {
-    text = quotes[index]["text"];
-    author = quotes[index]["author"];
-
-    if (author === null) {
-      author = "Unknown author";
-    }
-  })();
 
   return (
     <>
@@ -44,11 +32,11 @@ const Cards = () => {
         <div id="quote-text">
           <span>"</span>
           <p>
-            <em>{text}</em>
+            <em>{quotes[index]["text"]}</em>
           </p>
           <span>"</span>
         </div>
-        <h3>- {author}</h3>
+        <h3>- {quotes[index]["author"] || "Unknown author."}</h3>
       </div>
       <button
         onClick={() => {
@@ -63,8 +51,8 @@ const Cards = () => {
 };
 
 const changeBgColor = () => {
-  let colorIndex = Math.floor(Math.random() * bgColors.length);
-  let currentBgColor = bgColors[colorIndex];
+  const colorIndex = Math.floor(Math.random() * bgColors.length);
+  const currentBgColor = bgColors[colorIndex];
 
   document.querySelector("body").style.transition = "background-color 450ms";
   document.querySelector("body").style.backgroundColor = currentBgColor;
