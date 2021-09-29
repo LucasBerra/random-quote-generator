@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { bgColors } from "./colors";
+import { bgColors } from "../../data/colors";
 
 // quotes API
 const url = "https://type.fit/api/quotes";
@@ -23,12 +23,7 @@ const Cards = () => {
   };
 
   // initializes quotes variable
-  const [quotes, setQuotes] = useState([
-    {
-      text: " ",
-      author: " ",
-    },
-  ]);
+  const [quotes, setQuotes] = useState([]);
 
   // initializes quotes' index variable
   const [index, setIndex] = useState(randomIndex());
@@ -37,10 +32,15 @@ const Cards = () => {
   };
 
   // fetch quotes API
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setQuotes(data))
+      .then((data) => {
+        setQuotes(data);
+        setIsLoading(false);
+      })
       .catch((error) => console.log("An error occured: ", error));
   }, []);
 
@@ -50,11 +50,11 @@ const Cards = () => {
         <div id="quote-text">
           <span>"</span>
           <p>
-            <em>{quotes[index]["text"]}</em>
+            <em>{isLoading || quotes[index]["text"]}</em>
           </p>
           <span>"</span>
         </div>
-        <h3>- {quotes[index]["author"] || "Unknown author."}</h3>
+        <h3>- {isLoading || quotes[index]["author"] || "Unknown author."}</h3>
       </div>
       <button
         onClick={() => {
