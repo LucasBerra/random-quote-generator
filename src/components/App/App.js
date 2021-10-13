@@ -32,8 +32,6 @@ const Cards = () => {
   };
 
   // fetch quotes API
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -43,6 +41,15 @@ const Cards = () => {
       })
       .catch((error) => console.log("An error occured: ", error));
   }, []);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  // change bg color on re-render
+  useEffect(() => {
+    if (!isLoading) {
+      changeBgColor();
+    }
+  });
 
   return (
     <>
@@ -56,24 +63,17 @@ const Cards = () => {
         </div>
         <h3>- {isLoading || quotes[index]["author"] || "Unknown author."}</h3>
       </div>
-      <button
-        onClick={() => {
-          newQuote();
-          changeBgColor();
-        }}
-      >
-        generate quote
-      </button>
+      <button onClick={newQuote}>generate quote</button>
     </>
   );
 };
 
 const changeBgColor = () => {
   const colorIndex = Math.floor(Math.random() * bgColors.length);
-  const currentBgColor = bgColors[colorIndex];
+  const newBgColor = bgColors[colorIndex];
 
   document.querySelector("body").style.transition = "background-color 450ms";
-  document.querySelector("body").style.backgroundColor = currentBgColor;
+  document.querySelector("body").style.backgroundColor = newBgColor;
 };
 
 export default App;
