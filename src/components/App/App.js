@@ -44,13 +44,6 @@ const Cards = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  // change bg color on re-render
-  useEffect(() => {
-    if (!isLoading) {
-      changeBgColor();
-    }
-  }, [index]);
-
   return (
     <>
       <div id="quote-container">
@@ -63,7 +56,14 @@ const Cards = () => {
         </div>
         <h3>- {isLoading || quotes[index]["author"] || "Unknown author."}</h3>
       </div>
-      <button onClick={newQuote}>generate quote</button>
+      <button
+        onClick={() => {
+          newQuote();
+          changeBgColor();
+        }}
+      >
+        generate quote
+      </button>
     </>
   );
 };
