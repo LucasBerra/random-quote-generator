@@ -49,7 +49,7 @@ const Cards = () => {
     if (!isLoading) {
       changeBgColor();
     }
-  });
+  }, [index]);
 
   return (
     <>
